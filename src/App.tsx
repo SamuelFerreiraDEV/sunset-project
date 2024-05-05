@@ -1,3 +1,4 @@
+import { ReactElement, useState } from "react"
 import { Footer } from "./components/Footer"
 import { Header } from "./components/Header"
 import { Contato } from "./pages/Contato/Contato"
@@ -6,7 +7,7 @@ import { Sobre } from "./pages/Sobre/Sobre"
 import { GlobalStyle } from "./styles/globalStyles"
 
 function App() {
-  let content = <Home />;
+  let content: ReactElement = <Home />;
 
   switch (window.location.pathname) {
     case "/contato":
@@ -19,6 +20,9 @@ function App() {
       <Home />
       break;
   }
+
+  const [currentPage, setCurrentPage] = useState(<Home />);
+  
   
   return (
     <>
