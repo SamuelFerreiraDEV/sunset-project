@@ -7,10 +7,6 @@ export const ListItem = styled.li`
     &:hover {
       background-color: var(--background);
     }
-    
-    &.active {
-      background-color: green;
-    }
   
   a {
     display: flex;

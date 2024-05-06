@@ -1,13 +1,14 @@
-import { Container } from "./style";
+import { NewsProps } from "../../../types/nav";
+import * as S from "./style";
 
-interface NewsCardProps {
-  num: number
-}
-
-export function NewsCard(props: NewsCardProps) {
+export function NewsCard(props: NewsProps) {
   return (
-   <Container>
-      NEWSCARD {props.num}
-    </Container>
+   <S.Div>
+    <img src={props.image} />
+    <div>
+      <h3>{props.title}</h3>
+    </div>
+    
+    </S.Div>
   )
 }

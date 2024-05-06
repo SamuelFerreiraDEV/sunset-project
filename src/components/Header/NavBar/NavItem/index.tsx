@@ -1,14 +1,14 @@
+import { Link } from "react-router-dom";
 import { NavItemListProps } from "../../../../types/nav";
 import * as S from "./style";
 
 export function NavItem({ href, imgLink, innerText }: NavItemListProps) {
-  const path: string = window.location.pathname;
   return (
-    <S.ListItem className={path === href ? "active" : ""}>
-      <a href={href}>
+    <S.ListItem >
+      <Link to={href}>
         <img src={imgLink} />
         {innerText}
-      </a>
+      </Link>
     </S.ListItem>
   )
 }
