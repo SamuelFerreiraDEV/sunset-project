@@ -10,20 +10,6 @@ createServer({
 
     this.get('/news', () => {
       return NewsData
-      // return [
-      //   {
-      //     id: 0,
-      //     letter: 'a'
-      //   },
-      //   {
-      //     id: 1,
-      //     letter: 'b'
-      //   },
-      //   {
-      //     id: 2,
-      //     letter: 'c'
-      //   },
-      // ]
     })
   }
 })

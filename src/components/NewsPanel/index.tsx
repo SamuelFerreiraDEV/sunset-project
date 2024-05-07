@@ -5,10 +5,10 @@ import { NewsProps } from "../../types/nav";
 
 export function NewsPanel() {
   
-  const [newsArr, setNewsArr] = useState([]);
+  const [newsArr, setNewsArr] = useState<NewsProps[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:5173/api/news')
+    fetch('http://localhost:5173/api/news/')
     .then(response => response.json())
     .then(data => setNewsArr(data))
   }, [])
