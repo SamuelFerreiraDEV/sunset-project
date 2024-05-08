@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { NewsProps } from "../../../types/nav";
+import { NewsProps } from "../../../types/types";
 import * as S from "./style";
 
 export function NewsCard(props: NewsProps) {

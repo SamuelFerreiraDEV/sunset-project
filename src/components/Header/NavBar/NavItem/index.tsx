@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { NavItemListProps } from "../../../../types/nav";
+import { NavItemListProps } from "../../../../types/types";
 import * as S from "./style";
 
 export function NavItem({ href, imgLink, innerText }: NavItemListProps) {

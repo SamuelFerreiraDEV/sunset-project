@@ -1,19 +1,8 @@
-import { useEffect, useState } from "react";
 import { NewsCard } from "./NewsCard";
 import * as S from "./style";
-import { NewsProps } from "../../types/nav";
+import { NewsBoardProps, NewsProps } from "../../types/types";
 
-export function NewsPanel() {
-  
-  const [newsArr, setNewsArr] = useState<NewsProps[]>([]);
-
-  useEffect(() => {
-    fetch('http://localhost:5173/api/news/')
-    .then(response => response.json())
-    .then(data => setNewsArr(data))
-  }, [])
-console.log(newsArr);
-
+export function NewsBoard({ newsArr }: NewsBoardProps) {
   
   function renderCards() {
     return newsArr.map((news: NewsProps) => {

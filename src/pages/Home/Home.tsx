@@ -1,16 +1,16 @@
-import { useParams } from "react-router-dom";
-import { NewsPanel } from "../../components/NewsPanel";
+import { useContext } from "react";
+import { NewsBoard } from "../../components/NewsBoard";
 import * as S from "./style";
+import { NewsContext } from "../../contexts/NewsContext";
 
 export function Home() {
 
-  const param = useParams();
-  console.log(param);
+  const newsArr = useContext(NewsContext);
   
 
   return (
     <S.Div>
-      <NewsPanel />
+      <NewsBoard newsArr={newsArr}/>
     </S.Div>
   )
 }

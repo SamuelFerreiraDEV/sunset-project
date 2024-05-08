@@ -11,14 +11,14 @@ export const GlobalStyle = createGlobalStyle`
     --cards-text: #FFEDD5;
     --footer-background: #5C1F06;
   }
-
+  
   body {
     background-image: url("../src/assets/sunset-background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-
+    
   }
-
+  
   * {
     margin: 0;
     padding: 0;

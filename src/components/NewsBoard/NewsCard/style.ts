@@ -9,21 +9,28 @@ export const Div = styled.div`
   border: 2px solid var(--borders);
   overflow: hidden;
   margin: 4px;
+  
+  h3 {
+    color: black;
 
+  }
+  
   &:hover {
     border: 4px solid var(--borders);
+  }
+  
+  a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
   }
   
   img {
     height: 60%;
   }
-
+  
   div {
+    padding: 4px;
     height: 40%;
-    overflow: hidden;
   }
-  /* a {
-    display: flex;
-    flex-direction: column;
-  } */
 `

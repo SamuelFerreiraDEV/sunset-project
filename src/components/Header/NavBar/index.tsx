@@ -3,7 +3,7 @@ import SunHorizonImg from "../../../assets/SunHorizon.svg";
 import ChatImg from "../../../assets/ChatCenteredDots.svg";
 import CoffeeImg from "../../../assets/Coffee.svg";
 import { NavItem } from "./NavItem";
-import { NavItemListProps } from "../../../types/nav";
+import { NavItemListProps } from "../../../types/types";
 
 export function NavBar() {
 
