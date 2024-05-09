@@ -16,7 +16,7 @@ export function NewsBoard({ newsArr }: NewsBoardProps) {
                 published_date={news.published_date}
                 content={news.content} 
                 tags={news.tags} 
-                key={news.title}
+                key={news.id}
               />
     })
   }

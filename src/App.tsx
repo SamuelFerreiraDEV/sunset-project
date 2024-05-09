@@ -15,9 +15,7 @@ function App() {  // TEM ALGO EM ALGUM LUGAR FAZENDO A APLICAÇÃO CARREGAR 2X [
   //   createRoutesFromElements(
   
   //   )
-  // )
-  console.log('a');
-  
+  // )  
 
   return (
     <NewsProvider>
