@@ -6,8 +6,7 @@ export const Div = styled.div`
   flex-flow: row wrap;
   align-content: flex-start;
   justify-content: center;
-  justify-self: center;
-  /* background-color: blue; */
+  background-color: blue;
   width: 80%;
   height: 100%; 
   padding: 4px;

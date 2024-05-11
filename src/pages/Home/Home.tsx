@@ -5,12 +5,11 @@ import { NewsContext } from "../../contexts/NewsContext";
 
 export function Home() {
 
-  const newsArr = useContext(NewsContext);
-  
+  const { news } = useContext(NewsContext);
 
   return (
     <S.Div>
-      <NewsBoard newsArr={newsArr}/>
+      <NewsBoard newsArr={news}/>
     </S.Div>
   )
 }

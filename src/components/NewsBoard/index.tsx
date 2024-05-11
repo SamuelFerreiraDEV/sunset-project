@@ -2,7 +2,7 @@ import { NewsCard } from "./NewsCard";
 import * as S from "./style";
 import { NewsBoardProps, NewsProps } from "../../types/types";
 
-export function NewsBoard({ newsArr }: NewsBoardProps) {
+export function NewsBoard({ newsArr } : NewsBoardProps) {
   
   function renderCards() {
     return newsArr.map((news: NewsProps) => {

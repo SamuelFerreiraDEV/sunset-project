@@ -29,3 +29,13 @@ export type NewsBoardProps = {
 export type NewsContentProps = {
   newsData: NewsProps
 }
+
+export interface NewsContextData {
+  news: NewsProps[]
+  createNews: (news: NewsProps) => Promise<void>
+}
+
+export interface SearchNews {
+  titleInput: string,
+  tagsInput: string
+}

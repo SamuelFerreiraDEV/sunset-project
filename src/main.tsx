@@ -20,12 +20,22 @@ createServer({
 
     this.get('news', () => {
       return this.schema.all('news').models
-    }, {timing: 100})
+    })
 
     this.post('news', (schema, request) => {
       const data = JSON.parse(request.requestBody)
+      console.log(schema.all('news'));
       return schema.create('news', data)
     })
+
+    this.delete('news/:id', (schema, request) => {
+      const id = request.params.id;
+      console.log(`aqui ${id}`);
+      console.log(schema);
+      
+      schema.find('news', id)?.destroy();
+      return { message: 'News deleted successfully' };
+    });
   }
 })
 

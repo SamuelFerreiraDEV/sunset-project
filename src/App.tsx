@@ -3,8 +3,10 @@ import { Header } from "./components/Header"
 import { PageNotFound } from "./components/PageNotFound"
 import { NewsProvider } from "./contexts/NewsContext"
 import { Contato } from "./pages/Contato/Contato"
+import { Delete } from "./pages/Delete/Delete"
 import { Home } from "./pages/Home/Home"
 import { NewsPage } from "./pages/NewsPage/NewsPage"
+import { Publish } from "./pages/Publish/Publish"
 import { Sobre } from "./pages/Sobre/Sobre"
 import { GlobalStyle } from "./styles/globalStyles"
 import { Routes, Route } from "react-router-dom"
@@ -26,6 +28,9 @@ function App() {  // TEM ALGO EM ALGUM LUGAR FAZENDO A APLICAÇÃO CARREGAR 2X [
             <Route index element={<Home />} />
             <Route path="/contato" element={<Contato />} />
             <Route path="/sobre" element={<Sobre />} />
+            <Route path="/publicacao" element={<Publish />} />
+            <Route path="/removerpublicacao" element={<Delete />} />
+
             <Route path="/news">
               <Route index element={<Home />} />
               <Route path=":id" element={<NewsPage />} />
