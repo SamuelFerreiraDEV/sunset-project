@@ -27,15 +27,23 @@ createServer({
       console.log(schema.all('news'));
       return schema.create('news', data)
     })
-
+    
     this.delete('news/:id', (schema, request) => {
-      const id = request.params.id;
-      console.log(`aqui ${id}`);
-      console.log(schema);
+      const { id } = request.params;
+      console.log(id);
       
-      schema.find('news', id)?.destroy();
-      return { message: 'News deleted successfully' };
-    });
+      return schema.find('news', id)?.destroy();
+    })
+    // this.delete('news/:id', (schema, request) => {
+    //   const id: string = request.params.id;
+    //   console.log(`aqui ${id}`);
+    //   console.log(schema.db.news[parseInt(id)]);
+
+    //   // schema.db.news[id]?
+    //   console.log(schema.find('news', id));
+
+    //   return { message: 'News deleted successfully' };
+    // });
   }
 })
 

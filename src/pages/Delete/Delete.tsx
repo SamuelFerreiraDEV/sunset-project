@@ -1,41 +1,49 @@
 import * as S from "./style";
-import { NewsProps, SearchNews } from "../../types/types";
+import { NewsProps } from "../../types/types";
 import { useContext, useState } from "react";
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { NewsContext } from "../../contexts/NewsContext";
 import { z } from 'zod';
 import { zodResolver } from "@hookform/resolvers/zod";
-import { api } from "../../services/api";
 
 const schema = z.object({
-  // title: z.string().min(4, {message: "Mínimo de 4 caracteres"}),
-  // title: z.string().min(4, {message: "Mínimo de 4 caracteres"}),
+  title: z.string().min(4, {message: "Mínimo de 4 caracteres"}),
+  id: z.string(),
 })
 
 export function Delete() {
   
-  const { news } = useContext(NewsContext)
+  const { news, deleteNews } = useContext(NewsContext)
   const [newsSearch, setNewsSeach] = useState<NewsProps[]>([]);
 
   const { 
     register, 
     handleSubmit, 
+    reset,
     formState: {errors, isSubmitting }
   } = useForm<NewsProps>({
     resolver: zodResolver(schema)
    });
 
+  const handleSearch: SubmitHandler<NewsProps> = async ({ title }) => {
 
-  const handleSearch: SubmitHandler<NewsProps> = async (data) => {
     await new Promise(resolve => setTimeout(resolve, 1000))
 
-    console.log(data);
-
     const filtered = news.filter((newsElement: NewsProps) => {
-      if(newsElement.title.includes(data.title) || newsElement.tags.includes(data.tags.toString()))
+      
+      if(newsElement.title.toUpperCase().includes(title.toUpperCase()))
         return newsElement;
     })
     setNewsSeach(filtered)
+  }
+
+  const handleDelete: SubmitHandler<NewsProps> = async (formData) => {
+    console.log(formData);
+    
+    await new Promise(resolve => setTimeout(resolve, 1000))
+
+    deleteNews(formData)
+    reset()
   }
 
   return (
@@ -44,36 +52,41 @@ export function Delete() {
         <label htmlFor="title">Pesquise pelo título</label>
         <input 
           {... register("title")} 
-          type="text" 
+          type="text"
           placeholder="..."
         />
         {errors.title && <div>{errors.title.message}</div>}
 
-        <p>OU</p>
+        <button disabled={isSubmitting} type="submit">
+          {isSubmitting ? 'loading' : 'Submit'}
+        </button>
+      </form>
 
-        <label htmlFor="tags">Pesquise pelas tags da notícia</label>
+      <form onSubmit={handleSubmit(handleDelete)}>
+        <label htmlFor="id">Insira o ID do item que será deletado</label>
         <input 
-          {... register("tags")} 
-          type="text" 
+          {... register("id")} 
+          type="text"
           placeholder="..."
         />
-        {errors.tags && <div>{errors.tags.message}</div>}
+        {errors.id && <div>{errors.id.message}</div>}
 
         <button disabled={isSubmitting} type="submit">
           {isSubmitting ? 'loading' : 'Submit'}
-          </button>
-        </form>
+        </button>
+      </form>
 
+      <div>
         <ul>
-          {newsSearch.map((each) => {
+          {newsSearch.map((eachNews) => {
             return (
-            <li>
-              <h3>{each.title}</h3>
-              <h4>Tags: {each.tags}</h4>
-            </li>)
+              <li key={eachNews.id}>
+                <h3>ID {eachNews.id} - {eachNews.title}</h3>
+              </li>
+            )
           })}
         </ul>
-
+      </div>
     </S.Div>
   )
 }

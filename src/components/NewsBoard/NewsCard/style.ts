@@ -12,7 +12,7 @@ export const Div = styled.div`
   
   h3 {
     color: black;
-
+    
   }
   
   &:hover {
@@ -20,6 +20,7 @@ export const Div = styled.div`
   }
   
   a {
+    height: 100%;
     display: flex;
     flex-direction: column;
     text-decoration: none;
@@ -30,7 +31,11 @@ export const Div = styled.div`
   }
   
   div {
-    padding: 4px;
+    display: flex;
+    padding-left: 2px;
     height: 40%;
+    
+    h3 {
+    }
   }
 `

@@ -1,6 +1,6 @@
 import { ReactNode } from "react"
 
-export type NavItemListProps = {   // TYPE x INTERFACE
+export type NavItemListProps = {
   href: string,
   imgLink: string,
   innerText: string
@@ -33,9 +33,5 @@ export type NewsContentProps = {
 export interface NewsContextData {
   news: NewsProps[]
   createNews: (news: NewsProps) => Promise<void>
-}
-
-export interface SearchNews {
-  titleInput: string,
-  tagsInput: string
+  deleteNews: (news: NewsProps) => Promise<void>
 }

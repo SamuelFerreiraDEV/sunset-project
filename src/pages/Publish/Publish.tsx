@@ -1,11 +1,10 @@
 import * as S from "./style";
 import { NewsProps } from "../../types/types";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { NewsContext } from "../../contexts/NewsContext";
 import { z } from 'zod';
 import { zodResolver } from "@hookform/resolvers/zod";
-import { api } from "../../services/api";
 
 const schema = z.object({
   title: z.string().min(10, {message: "Mínimo de 10 caracteres"}),
@@ -17,17 +16,19 @@ const schema = z.object({
 export function Publish() {
   
   const { createNews } = useContext(NewsContext);
-  const [publish, setPublish] = useState<NewsProps>({} as NewsProps);
-
+  
   const { 
     register, 
     handleSubmit, 
+    reset,
     formState: {errors, isSubmitting }
   } = useForm<NewsProps>({
     resolver: zodResolver(schema)
-   });
-   
+  });
+  
   // const [title, setTitle] = useState('');
+  
+  // const [publish, setPublish] = useState<NewsProps>({} as NewsProps);
   // const [image, setImage] = useState('');
   // const [content, setContent] = useState('');
   // const [id, setId] = useState('');
@@ -37,40 +38,14 @@ export function Publish() {
   // const [tags, setTags] = useState([]);
   // const [published_date, setPublished_date] = useState('');
 
-  const handlePublish: SubmitHandler<NewsProps> = async (data) => {
-
+  const handlePublish: SubmitHandler<NewsProps> = async (formData) => {
     await new Promise(resolve => setTimeout(resolve, 1000))
     
-    api.delete("/news/4")
-    setPublish(data)
-    console.log(data);
-
-    createNews(publish)
-    console.log(publish);
+    // setPublish(data)
+    
+    createNews(formData)
+    reset();
   }
-
-  // async function handleCreateNews(event: FormEvent) {
-  //   event.preventDefault()
-
-  //   setId((news.length+1).toString())
-
-  //   await createNews({
-  //   title,
-  //   image,
-  //   author,
-  //   authorPic,
-  //   category,
-  //   content,
-  //   id,
-  //   published_date,
-  //   tags
-  //   })
-
-  //   setTitle('')
-  //   setImage('')
-  //   setContent('')
-  //   setCategory('')
-  // }
 
   return (
     <S.Div>

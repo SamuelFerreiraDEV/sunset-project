@@ -4,7 +4,8 @@ import { NewsBoardProps, NewsProps } from "../../types/types";
 
 export function NewsBoard({ newsArr } : NewsBoardProps) {
   
-  function renderCards() {
+  function renderCards() {    
+    
     return newsArr.map((news: NewsProps) => {
       return  <NewsCard
                 id={news.id}
@@ -18,7 +19,7 @@ export function NewsBoard({ newsArr } : NewsBoardProps) {
                 tags={news.tags} 
                 key={news.id}
               />
-    })
+    }).reverse()
   }
   
   return (

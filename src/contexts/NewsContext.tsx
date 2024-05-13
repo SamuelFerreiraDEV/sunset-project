@@ -8,8 +8,8 @@ export const NewsContext = createContext<NewsContextData>(
 
 export function NewsProvider({ children }: NewsProviderProps) {
   const [news, setNews] = useState<NewsProps[]>([]);
-  
-  useEffect(() => {  
+
+  useEffect(() => {
     api.get('news')
     .then(response => setNews(response.data))
   }, [])
@@ -26,9 +26,17 @@ export function NewsProvider({ children }: NewsProviderProps) {
       newNews,
     ])
   }
+
+  async function deleteNews({ id }: NewsProps) {
+    
+    await api.delete(`news/${id}`);
+
+    const getResponse = await api.get('news');
+    setNews(getResponse.data)
+  }
   
   return(
-    <NewsContext.Provider value={{news, createNews}}>
+    <NewsContext.Provider value={{news, createNews, deleteNews}}>
       {children}
     </NewsContext.Provider>
   )
