@@ -1,29 +1,27 @@
 import * as S from "./style";
 import SunHorizonImg from "../../../assets/SunHorizon.svg";
-import ChatImg from "../../../assets/ChatCenteredDots.svg";
 import CoffeeImg from "../../../assets/Coffee.svg";
 import PlusSquareImg from "../../../assets/PlusSquare.svg";
 import TrashImg from "../../../assets/Trash.svg";
 import { NavItem } from "./NavItem";
 import { NavItemListProps } from "../../../types/types";
+import { useContext } from "react";
+import { NewsContext } from "../../../contexts/NewsContext";
 
 export function NavBar() {
+
+  const { searchForNews } = useContext(NewsContext);
 
   const NavItemList: NavItemListProps[] = [
     {
       href: "/",
       imgLink: SunHorizonImg, 
       innerText: "Home"
-    }, 
+    },  
     {
-      href: "/contato", 
-      imgLink: ChatImg, 
-      innerText: "Contato"
-    }, 
-    {
-      href: "/sobre",
+      href: "/landingpage",
       imgLink: CoffeeImg,
-      innerText: "Sobre"
+      innerText: "Landing Page"
     },
     {
       href: "/publicacao",
@@ -51,6 +49,7 @@ export function NavBar() {
   return (
     <S.Nav>
       <ul>
+        <input type="text" placeholder="Buscar" onChange={((event) => {searchForNews(event.target.value)})} />
         {NavItemListMap}
       </ul>
     </S.Nav>

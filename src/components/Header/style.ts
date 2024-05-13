@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 export const Header = styled.header`
-  background-color: darkslateblue;
   height: 24vh;
-  /* position: relative; */
   display: flex;
   flex-direction: column;
   place-items: center;

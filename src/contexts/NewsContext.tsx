@@ -8,6 +8,7 @@ export const NewsContext = createContext<NewsContextData>(
 
 export function NewsProvider({ children }: NewsProviderProps) {
   const [news, setNews] = useState<NewsProps[]>([]);
+  const [newsFilter, setNewsFilter] = useState<string>('');
 
   useEffect(() => {
     api.get('news')
@@ -32,11 +33,16 @@ export function NewsProvider({ children }: NewsProviderProps) {
     await api.delete(`news/${id}`);
 
     const getResponse = await api.get('news');
-    setNews(getResponse.data)
+    setNews(getResponse.data);
+  }
+
+  async function searchForNews(input: string) {
+    await setNewsFilter(input);
+    console.log(newsFilter);
   }
   
   return(
-    <NewsContext.Provider value={{news, createNews, deleteNews}}>
+    <NewsContext.Provider value={{news, createNews, deleteNews, newsFilter, searchForNews}}>
       {children}
     </NewsContext.Provider>
   )

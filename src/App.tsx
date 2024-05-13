@@ -2,22 +2,15 @@ import { Footer } from "./components/Footer"
 import { Header } from "./components/Header"
 import { PageNotFound } from "./components/PageNotFound"
 import { NewsProvider } from "./contexts/NewsContext"
-import { Contato } from "./pages/Contato/Contato"
 import { Delete } from "./pages/Delete/Delete"
 import { Home } from "./pages/Home/Home"
+import { LandingPage } from "./pages/LandingPage/LandingPage"
 import { NewsPage } from "./pages/NewsPage/NewsPage"
 import { Publish } from "./pages/Publish/Publish"
-import { Sobre } from "./pages/Sobre/Sobre"
 import { GlobalStyle } from "./styles/globalStyles"
 import { Routes, Route } from "react-router-dom"
 
-function App() {  // TEM ALGO EM ALGUM LUGAR FAZENDO A APLICAÇÃO CARREGAR 2X [teste com log]
-
-  // const router = createBrowserRouter(  // TENTEI USAR O ROUTERPROVIDER E NÂO CONSEGUI FAZER A TAG <Link> FUNCIONAR COM ELE, E SE USAR <a> TODA A PÁGINA RECARREGA AO CLICAR (teste do contador)
-  //   createRoutesFromElements(
-  
-  //   )
-  // )  
+function App() {
 
   return (
     <NewsProvider>
@@ -26,8 +19,7 @@ function App() {  // TEM ALGO EM ALGUM LUGAR FAZENDO A APLICAÇÃO CARREGAR 2X [
         <Route>
           <Route path="/">
             <Route index element={<Home />} />
-            <Route path="/contato" element={<Contato />} />
-            <Route path="/sobre" element={<Sobre />} />
+            <Route path="/landingpage" element={<LandingPage />}/>
             <Route path="/publicacao" element={<Publish />} />
             <Route path="/removerpublicacao" element={<Delete />} />
 

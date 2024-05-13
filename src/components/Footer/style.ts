@@ -1,12 +1,19 @@
 import styled from "styled-components";
 
 export const Footer = styled.footer`
-  height: 10vh;
+  /* height: 40vh; */
   display: flex;
-  background-color: crimson;
-  align-items: end;
+  flex-direction: column;
+  background-color: var(--background);
+  align-items: flex-start;
   padding: 4px;
   margin-top: 24px;
+  
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 
   h1 {
     color: wheat;

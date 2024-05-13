@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 export const Div = styled.div`
-
   display: flex;
-
   margin: auto;
   height: 80vh;
   width: 50vw;

@@ -30,7 +30,6 @@ export function Delete() {
     await new Promise(resolve => setTimeout(resolve, 1000))
 
     const filtered = news.filter((newsElement: NewsProps) => {
-      
       if(newsElement.title.toUpperCase().includes(title.toUpperCase()))
         return newsElement;
     })

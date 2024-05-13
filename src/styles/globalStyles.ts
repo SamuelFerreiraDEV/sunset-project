@@ -5,9 +5,9 @@ export const GlobalStyle = createGlobalStyle`
   :root {
     --background: #5C1F06;
     --icons: #FB923C;
+    --borders: #5C1F06;
     --title: #FDBA74;
     --buttons-text: #FDBA74;
-    --borders: #5C1F06;
     --cards-text: #FFEDD5;
     --footer-background: #5C1F06;
   }

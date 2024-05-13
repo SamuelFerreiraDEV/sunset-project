@@ -31,7 +31,9 @@ export type NewsContentProps = {
 }
 
 export interface NewsContextData {
-  news: NewsProps[]
-  createNews: (news: NewsProps) => Promise<void>
-  deleteNews: (news: NewsProps) => Promise<void>
+  news: NewsProps[],
+  newsFilter: string,
+  createNews: (news: NewsProps) => Promise<void>,
+  deleteNews: (news: NewsProps) => Promise<void>,
+  searchForNews: (input: string) => void
 }
