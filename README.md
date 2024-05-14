@@ -6,8 +6,6 @@ Repositório: https://github.com/SamuelFerreiraDEV/sunset-project
 
 Figma: https://www.figma.com/design/LwFEp9cL2loSUE7fUHHEsZ/Sunset-Project?node-id=0%3A1&t=BwQJYPvj0QQfCnjZ-1
 
-Whatsapp: 35 988174399
-
   Olá, Sunset News é um projeto de site de notícias construído em React e Typescript e utiliza a biblioteca MirageJs para simular seu backend.
 
   A ideia inicial foi audaciosa, além da Landing Page requisitada eu quis de fato desenvolver
