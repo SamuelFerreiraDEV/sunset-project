@@ -13,8 +13,9 @@ export const Div = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80vw;
+    /* width: 80vw; */
     background-color: black;
+
     margin: 24px;
     /* text-indent: -30px; */
 
@@ -35,9 +36,13 @@ export const Div = styled.div`
 `
 export const Header = styled.header`
   height: 24vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   place-items: center;
+  background-image: url("../src/assets/sunset-background.jpg");
+  background-size: cover;
+
 
   a {
     display: flex;
@@ -54,4 +59,21 @@ export const Header = styled.header`
 `
 export const ImgLogo = styled.img`
   height: 96px;
+`
+export const CardsHolder = styled.div`
+  display: flex;
+  width: 80%;
+  flex-direction: row;
+`
+
+export const Cards = styled.div`
+  display: flex;
+  flex-direction: row;
+  background-color: var(--background);
+  width: 33%;
+  height: 33%;
+  border: 4px solid var(--borders);
+  overflow: hidden;
+  margin: 4px;
+  border-radius: 8px;
 `

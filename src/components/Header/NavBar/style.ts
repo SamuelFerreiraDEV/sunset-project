@@ -17,7 +17,7 @@ export const Nav = styled.nav`
 
     input {
       height: 70%;
-      background-color: #FDBA74;
+      background-color: var(--cards-text);
       border: 2px solid #5C1F06;
       border-radius: 4px;
       color: #5C1F06;

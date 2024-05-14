@@ -4,10 +4,13 @@ export const Div = styled.div`
   display: flex;
   margin: auto;
   height: 80vh;
-  width: 50vw;
-  background-color: yellowgreen;
+  width: 30vw;
+  margin-top: 16px;
+  background-color: var(--background);
   justify-content: center;
   align-items: center;
+  font-size: 26px;
+  border-radius: 8px;
 
   form {
     display: flex;
@@ -18,5 +21,25 @@ export const Div = styled.div`
   div {
     color: red;
     font-size: 12px
+  }
+
+  input {
+    color: red;
+    padding: 4px;
+  }
+
+  input.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 80px;
+  }
+
+  button {
+    margin-top: 8px;
+    background-color: var(--background);
+    border: 2px solid var(--buttons-text);
+    padding: 12px;
+    border-radius: 4px;
   }
 `

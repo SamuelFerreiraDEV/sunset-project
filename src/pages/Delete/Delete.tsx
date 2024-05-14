@@ -57,7 +57,7 @@ export function Delete() {
         {errors.title && <div>{errors.title.message}</div>}
 
         <button disabled={isSubmitting} type="submit">
-          {isSubmitting ? 'loading' : 'Submit'}
+          {isSubmitting ? 'Carregando' : 'Pesquisar'}
         </button>
       </form>
 
@@ -71,7 +71,7 @@ export function Delete() {
         {errors.id && <div>{errors.id.message}</div>}
 
         <button disabled={isSubmitting} type="submit">
-          {isSubmitting ? 'loading' : 'Submit'}
+          {isSubmitting ? 'Carregando' : 'Enviar'}
         </button>
       </form>
 

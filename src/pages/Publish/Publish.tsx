@@ -7,10 +7,10 @@ import { z } from 'zod';
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const schema = z.object({
-  title: z.string().min(10, {message: "Mínimo de 10 caracteres"}),
+  title: z.string().min(8, {message: "Mínimo de 8 caracteres"}),
   image: z.string().url({message: "URL inválida"}),
   content: z.string().min(10, {message: "Mínimo de 10 caracteres"}),
-  tags: z.string().min(4, {message: "Insira uma tag"})
+  tags: z.string().min(2, {message: "Insira uma tag"})
 })
 
 export function Publish() {
@@ -26,17 +26,6 @@ export function Publish() {
     resolver: zodResolver(schema)
   });
   
-  // const [title, setTitle] = useState('');
-  
-  // const [publish, setPublish] = useState<NewsProps>({} as NewsProps);
-  // const [image, setImage] = useState('');
-  // const [content, setContent] = useState('');
-  // const [id, setId] = useState('');
-  // const [category, setCategory] = useState('');
-  // const [author, setAuthor] = useState('');
-  // const [authorPic, setAuthorPic] = useState('');
-  // const [tags, setTags] = useState([]);
-  // const [published_date, setPublished_date] = useState('');
 
   const handlePublish: SubmitHandler<NewsProps> = async (formData) => {
     await new Promise(resolve => setTimeout(resolve, 1000))
@@ -75,7 +64,7 @@ export function Publish() {
         </select>
         
         <label htmlFor="content">Conteúdo</label>
-        <input 
+        <input className="content"
           {... register("content")} 
           type="text" 
           placeholder="Conteúdo" 
@@ -91,7 +80,7 @@ export function Publish() {
         {errors.tags && <div>{errors.tags.message}</div>}
 
         <button disabled={isSubmitting} type="submit">
-          {isSubmitting ? 'loading' : 'Submit'}
+          {isSubmitting ? 'Carregando' : 'Publicar'}
           </button>
         </form>
     </S.Div>
